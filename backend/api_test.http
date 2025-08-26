@@ -1,0 +1,26 @@
+###---------------
+#GET
+###---------------
+
+###Get all recipes
+GET http://localhost:1234/recipes
+
+###---------------
+###Filtros
+###---------------
+
+###Filtrar por titulo
+GET http://localhost:1234/recipes?title=CARBOnara 
+
+###Filtrar recetas que incluyan un ingrediente.
+GET http://localhost:1234/recipes?ingredient=EGG
+
+###Filtar por dificultad
+GET http://localhost:1234/recipes?difficulty=EAS
+
+###Filtrar por tiempo limite de preparación.
+GET http://localhost:1234/recipes?time_lte=30`  
+
+
+###Obtener una receta por ID.
+GET http://localhost:1234/recipes/1a2b3c4d-0002-0000-0000-000000000002

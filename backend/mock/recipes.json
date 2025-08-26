@@ -1,0 +1,98 @@
+[
+  {
+    "id": "1a2b3c4d-0001-0000-0000-000000000001",
+    "title": "Spaghetti Carbonara",
+    "ingredients": ["Spaghetti", "Eggs", "Pecorino Romano", "Guanciale", "Black Pepper"],
+    "instructions": "Boil pasta, fry guanciale, mix with egg and cheese, combine.",
+    "time": 20,
+    "difficulty": "easy"
+  },
+  {
+    "id": "1a2b3c4d-0002-0000-0000-000000000002",
+    "title": "Chicken Curry",
+    "ingredients": ["Chicken", "Onion", "Garlic", "Tomato", "Curry Powder", "Coconut Milk"],
+    "instructions": "Cook onion and garlic, add chicken, spices, tomatoes, and coconut milk. Simmer until cooked.",
+    "time": 45,
+    "difficulty": "medium"
+  },
+  {
+    "id": "1a2b3c4d-0003-0000-0000-000000000003",
+    "title": "Beef Stroganoff",
+    "ingredients": ["Beef", "Mushrooms", "Onion", "Sour Cream", "Butter", "Paprika"],
+    "instructions": "Sauté beef and onions, add mushrooms and spices, finish with sour cream.",
+    "time": 40,
+    "difficulty": "medium"
+  },
+  {
+    "id": "1a2b3c4d-0004-0000-0000-000000000004",
+    "title": "Vegetable Stir Fry",
+    "ingredients": ["Broccoli", "Carrots", "Bell Pepper", "Soy Sauce", "Garlic", "Ginger"],
+    "instructions": "Stir fry all vegetables with garlic and ginger, add soy sauce, and serve hot.",
+    "time": 15,
+    "difficulty": "easy"
+  },
+  {
+    "id": "1a2b3c4d-0005-0000-0000-000000000005",
+    "title": "Chocolate Soufflé",
+    "ingredients": ["Chocolate", "Eggs", "Sugar", "Butter", "Flour", "Cream"],
+    "instructions": "Melt chocolate, fold in egg whites and other ingredients, bake until risen.",
+    "time": 50,
+    "difficulty": "hard"
+  },
+  {
+    "id": "1a2b3c4d-0006-0000-0000-000000000006",
+    "title": "Pancakes",
+    "ingredients": ["Flour", "Milk", "Eggs", "Sugar", "Butter", "Baking Powder"],
+    "instructions": "Mix ingredients, pour batter on hot pan, cook both sides until golden.",
+    "time": 25,
+    "difficulty": "easy"
+  },
+  {
+    "id": "1a2b3c4d-0007-0000-0000-000000000007",
+    "title": "Grilled Salmon",
+    "ingredients": ["Salmon", "Lemon", "Olive Oil", "Garlic", "Salt", "Pepper"],
+    "instructions": "Season salmon with oil, lemon, and spices, grill until cooked.",
+    "time": 30,
+    "difficulty": "medium"
+  },
+  {
+    "id": "1a2b3c4d-0008-0000-0000-000000000008",
+    "title": "Lasagna",
+    "ingredients": ["Lasagna Sheets", "Beef", "Tomato Sauce", "Cheese", "Onion", "Garlic"],
+    "instructions": "Layer pasta, meat, sauce, and cheese; bake until golden and bubbling.",
+    "time": 60,
+    "difficulty": "hard"
+  },
+  {
+    "id": "1a2b3c4d-0009-0000-0000-000000000009",
+    "title": "Caesar Salad",
+    "ingredients": ["Lettuce", "Croutons", "Parmesan", "Caesar Dressing", "Chicken"],
+    "instructions": "Toss lettuce with dressing, add croutons, cheese, and grilled chicken on top.",
+    "time": 15,
+    "difficulty": "easy"
+  },
+  {
+    "id": "1a2b3c4d-0010-0000-0000-000000000010",
+    "title": "Mushroom Risotto",
+    "ingredients": ["Rice", "Mushrooms", "Onion", "Parmesan", "Butter", "White Wine", "Broth"],
+    "instructions": "Cook onion and mushrooms, add rice, gradually add broth while stirring, finish with parmesan.",
+    "time": 45,
+    "difficulty": "medium"
+  },
+  {
+    "id": "1a2b3c4d-0011-0000-0000-000000000011",
+    "title": "Tiramisu",
+    "ingredients": ["Mascarpone", "Coffee", "Ladyfingers", "Cocoa Powder", "Eggs", "Sugar"],
+    "instructions": "Layer coffee-soaked ladyfingers with mascarpone mixture, dust with cocoa, chill before serving.",
+    "time": 35,
+    "difficulty": "hard"
+  },
+  {
+    "id": "1a2b3c4d-0012-0000-0000-000000000012",
+    "title": "Guacamole",
+    "ingredients": ["Avocado", "Onion", "Tomato", "Lime", "Cilantro", "Salt"],
+    "instructions": "Mash avocado, mix with chopped onion, tomato, lime juice, cilantro, and salt.",
+    "time": 10,
+    "difficulty": "easy"
+  }
+]
