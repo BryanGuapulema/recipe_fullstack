@@ -24,3 +24,11 @@ GET http://localhost:1234/recipes?time_lte=30`
 
 ###Obtener una receta por ID.
 GET http://localhost:1234/recipes/1a2b3c4d-0002-0000-0000-000000000002
+
+
+###------------------
+###     DELETE
+###------------------
+
+##Eliminar receta por id
+DELETE http://localhost:1234/recipes/1a2b3c4d-0002-0000-0000-000000000002

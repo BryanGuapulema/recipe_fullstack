@@ -9,10 +9,13 @@ app.disable('x-powered-by')
 app.use(cors())
 app.use(express.json())
 
-// Obtener todas las recetas
+// -------------
+//   FILTROS
+// -------------
 app.get('/recipes', (req, res) => {
   const { title, ingredient, difficulty, time_lte } = req.query
 
+  // Filtro por titulo
   if (title) {
     const filteredRecipes = recipes.filter(
       recipe => recipe.title.toLowerCase().includes(title.trim().toLowerCase())
@@ -21,6 +24,7 @@ app.get('/recipes', (req, res) => {
     return res.json(filteredRecipes)
   }
 
+  // Filtro por ingrediente
   if (ingredient) {
     const filteredRecipes = recipes.filter(
       recipe => recipe.ingredients.some(i => i.toLowerCase().includes(ingredient.trim().toLowerCase()))
@@ -29,6 +33,7 @@ app.get('/recipes', (req, res) => {
     return res.json(filteredRecipes)
   }
 
+  // Filtro por dificultad
   if (difficulty) {
     const filteredRecipes = recipes.filter(
       recipe => recipe.difficulty.toLowerCase().includes(difficulty.trim().toLowerCase())
@@ -37,14 +42,20 @@ app.get('/recipes', (req, res) => {
     return res.json(filteredRecipes)
   }
 
+  // Filtro por tiempo limite
   if (time_lte) {
     const filteredRecipes = recipes.filter(recipe => recipe.time <= parseInt(time_lte))
 
     return res.json(filteredRecipes)
   }
 
+  // si no hay filtros -> obtener todas las recetas
   return res.json(recipes)
 })
+
+// -------------
+//   BUSQUEDA
+// -------------
 
 // Obtener una receta por ID.
 app.get('/recipes/:id', (req, res) => {
@@ -57,6 +68,25 @@ app.get('/recipes/:id', (req, res) => {
   }
 
   return res.json(recipe)
+})
+
+// -------------
+//   ELIMINACION
+// -------------
+
+app.delete('/recipes/:id', (req, res) => {
+  const { id } = req.params
+
+  const recipeId = recipes.findIndex(recipe => recipe.id === id)
+
+  if (recipeId === -1) {
+    return res.status(404).json('Receta no encontrada')
+  }
+
+  const recipeDeleted = recipes[recipeId]
+
+  recipes.splice(recipeId, 1)
+  return res.json(recipeDeleted)
 })
 
 app.listen(PORT, () => {

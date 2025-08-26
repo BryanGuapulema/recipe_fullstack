@@ -13,7 +13,7 @@ El frontend será básico, solo para consumir la API y probar su funcionamiento.
 - `GET /recipes/:id` → Obtener una receta por ID.  ✅
 - `POST /recipes` → Crear una receta nueva.  
 - `PATCH /recipes/:id` → Actualizar receta (parcialmente).  
-- `DELETE /recipes/:id` → Eliminar receta.  
+- `DELETE /recipes/:id` → Eliminar receta.  ✅
 
 ### Filtros y búsquedas
 - `GET /recipes?title=carbonara` → Buscar por título.  ✅
