@@ -12,6 +12,11 @@ function validateRecipe (object) {
   return recipeSchema.safeParse(object)
 }
 
+function validatePartialsRecipe (object) {
+  return recipeSchema.partial().safeParse(object)
+}
+
 module.exports = {
-  validateRecipe
+  validateRecipe,
+  validatePartialsRecipe
 }

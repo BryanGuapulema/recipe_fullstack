@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const recipes = require('./mock/recipes.json')
-const { validateRecipe } = require('./schemas/recipeSchema.js')
+const { validateRecipe, validatePartialsRecipe } = require('./schemas/recipeSchema.js')
 
 const PORT = process.env.PORT ?? 1234
 
@@ -89,6 +89,33 @@ app.post('/recipes', (req, res) => {
   recipes.push(newRecipe)
 
   return res.status(201).json(newRecipe)
+})
+
+// -------------
+//   ACTUALIZACIÓN (PATCH)
+// -------------
+app.patch('/recipes/:id', (req, res) => {
+  const { id } = req.params
+  const recipeId = recipes.findIndex(recipe => recipe.id === id)
+
+  if (recipeId === -1) {
+    return res.status(404).json({ error: 'Recipe not found' })
+  }
+
+  const result = validatePartialsRecipe(req.body)
+
+  if (!result.success) {
+    return res.status(400).json({ error: JSON.parse(result.error.message) })
+  }
+
+  const updatedRecipe = {
+    ...recipes[recipeId],
+    ...result.data
+  }
+
+  recipes[recipeId] = updatedRecipe
+
+  return res.status(201).json(updatedRecipe)
 })
 
 // -------------

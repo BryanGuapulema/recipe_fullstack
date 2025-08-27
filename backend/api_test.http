@@ -33,12 +33,23 @@ POST http://localhost:1234/recipes
 Content-Type: application/json
 
 {
-    "title": "New Recipe",
-    "ingredients": ["Ingredient1","Ingredient2"],
-    "instructions": "Tutorial step by step",
-    "time": 20,
-    "difficulty": "easy"
-  }
+"title": "New Recipe",
+"ingredients": ["Ingredient1","Ingredient2"],
+"instructions": "Tutorial step by step",
+"time": 20,
+"difficulty": "easy"
+}
+
+###-------------
+###  PATCH
+###-------------
+PATCH  http://localhost:1234/recipes/1a2b3c4d-0002-0000-0000-000000000002
+Content-Type: application/json
+
+{
+    "title": "Updated Recipe",
+    "time": 20
+}
 
 ###------------------
 ###     DELETE
