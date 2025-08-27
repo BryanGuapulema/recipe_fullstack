@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const recipes = require('./mock/recipes.json')
+const { validateRecipe } = require('./schemas/recipeSchema.js')
 
 const PORT = process.env.PORT ?? 1234
 
@@ -68,6 +69,26 @@ app.get('/recipes/:id', (req, res) => {
   }
 
   return res.json(recipe)
+})
+
+// -------------
+//   CREACION
+// -------------
+app.post('/recipes', (req, res) => {
+  const result = validateRecipe(req.body)
+
+  if (!result.success) {
+    return res.status(400).json({ error: JSON.parse(result.error.message) })
+  }
+
+  const newRecipe = {
+    id: crypto.randomUUID(),
+    ...result.data
+  }
+
+  recipes.push(newRecipe)
+
+  return res.status(201).json(newRecipe)
 })
 
 // -------------
