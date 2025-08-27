@@ -11,8 +11,8 @@ El frontend será básico, solo para consumir la API y probar su funcionamiento.
 ### Endpoints principales
 - `GET /recipes` → Listar todas las recetas.  ✅
 - `GET /recipes/:id` → Obtener una receta por ID.  ✅
-- `POST /recipes` → Crear una receta nueva.  
-- `PATCH /recipes/:id` → Actualizar receta (parcialmente).  
+- `POST /recipes` → Crear una receta nueva.  ✅
+- `PATCH /recipes/:id` → Actualizar receta (parcialmente).  ✅
 - `DELETE /recipes/:id` → Eliminar receta.  ✅
 
 ### Filtros y búsquedas
@@ -22,11 +22,11 @@ El frontend será básico, solo para consumir la API y probar su funcionamiento.
 - `GET /recipes?time_lte=30` → Filtrar por tiempo de preparación menor o igual a 30 minutos. ✅ 
 
 ### Validaciones con Zod
-- `title`: string no vacío, máximo 100 caracteres.  
-- `ingredients`: array de strings, mínimo 2 elementos.  
-- `instructions`: string, mínimo 20 caracteres.  
-- `time`: número positivo.  
-- `difficulty`: enum: `"easy" | "medium" | "hard"`.
+- `title`: string no vacío, máximo 100 caracteres.  ✅
+- `ingredients`: array de strings, mínimo 2 elementos.  ✅
+- `instructions`: string, mínimo 20 caracteres.  ✅
+- `time`: número positivo.  ✅
+- `difficulty`: enum: `"easy" | "medium" | "hard"`.✅
 
 ---
 

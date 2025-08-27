@@ -91,9 +91,36 @@ app.post('/recipes', (req, res) => {
   return res.status(201).json(newRecipe)
 })
 
-// -------------
+// ------------------------
+//   ACTUALIZACIÓN (PUT)
+// ------------------------
+app.put('/recipes/:id', (req, res) => {
+  const { id } = req.params
+  const recipeId = recipes.findIndex(recipe => recipe.id === id)
+
+  if (recipeId === -1) {
+    return res.status(404).json({ error: 'Recipe not found' })
+  }
+
+  const result = validateRecipe(req.body)
+
+  if (!result.success) {
+    return res.status(400).json({ error: JSON.parse(result.error.message) })
+  }
+
+  const updatedRecipe = {
+    id: recipes[recipeId].id,
+    ...result.data
+  }
+
+  recipes[recipeId] = updatedRecipe
+
+  return res.json(updatedRecipe)
+})
+
+// ------------------------
 //   ACTUALIZACIÓN (PATCH)
-// -------------
+// ------------------------
 app.patch('/recipes/:id', (req, res) => {
   const { id } = req.params
   const recipeId = recipes.findIndex(recipe => recipe.id === id)
@@ -115,7 +142,7 @@ app.patch('/recipes/:id', (req, res) => {
 
   recipes[recipeId] = updatedRecipe
 
-  return res.status(201).json(updatedRecipe)
+  return res.json(updatedRecipe)
 })
 
 // -------------

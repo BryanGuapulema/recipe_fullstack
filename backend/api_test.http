@@ -41,6 +41,21 @@ Content-Type: application/json
 }
 
 ###-------------
+###  PUT
+###-------------
+
+PUT http://localhost:1234/recipes/1a2b3c4d-0002-0000-0000-000000000002
+Content-Type: application/json
+
+{
+    "title": "Chicken Curry con PUT",
+    "ingredients": ["Chicken", "Onion", "Garlic", "Tomato", "Curry Powder", "Coconut Milk"],
+    "instructions": "Cook onion and garlic, add chicken, spices, tomatoes, and coconut milk. Simmer until cooked.",
+    "time": 45,
+    "difficulty": "medium"
+  }
+
+###-------------
 ###  PATCH
 ###-------------
 PATCH  http://localhost:1234/recipes/1a2b3c4d-0002-0000-0000-000000000002
