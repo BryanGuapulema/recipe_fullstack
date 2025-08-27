@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestor de Recetas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>🍳 Gestor de Recetas</h1>
+  </header>
+
+  <main>
+    <!-- Barra de filtros -->
+    <section class="filters">
+      <input type="text" id="filter-title" placeholder="Buscar por título">
+      <input type="text" id="filter-ingredient" placeholder="Buscar por ingrediente">
+      <select id="filter-difficulty">
+        <option value="">Todas las dificultades</option>
+        <option value="easy">Fácil</option>
+        <option value="medium">Media</option>
+        <option value="hard">Difícil</option>
+      </select>
+      <input type="number" id="filter-time" placeholder="Tiempo máx (min)">
+      <button id="btn-filter">Filtrar</button>
+    </section>
+
+    <!-- Botón nuevo -->
+    <section>
+      <button id="btn-new">➕ Nueva Receta</button>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <span id="modal-close" class="close">&times;</span>
+        <h2 id="modal-title">Nueva Receta</h2>
+        <form id="recipe-form">
+          <input type="hidden" id="recipe-id">
+          <input type="text" id="title" placeholder="Título" required>
+          <textarea id="instructions" placeholder="Instrucciones" required></textarea>
+          <input type="number" id="time" placeholder="Tiempo (min)" required>
+          <select id="difficulty" required>
+            <option value="">Seleccionar dificultad</option>
+            <option value="easy">Fácil</option>
+            <option value="medium">Media</option>
+            <option value="hard">Difícil</option>
+          </select>
+          <input type="text" id="ingredients" placeholder="Ingredientes separados por coma" required>
+          <button type="submit">Guardar</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Mensajes -->
+    <section id="messages"></section>
+
+    <!-- Lista de recetas -->
+    <section id="recipes" class="recipes"></section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
