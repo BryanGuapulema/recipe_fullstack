@@ -10,7 +10,7 @@ app.use(cors())
 app.use(express.json())
 
 // -----------------
-//   USO DE ROUTES
+//   ROUTING
 // -----------------
 app.use(recipeRoutes)
 
