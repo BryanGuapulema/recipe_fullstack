@@ -13,7 +13,7 @@ export const corsMiddleware = ({ acceptedOrigins = ACCEPTED_ORIGINS } = {}) => c
     }
 
     // cuando se hace una solicitud PUT,PATCH, DELETE no envia origen
-    // if (!origin) return callback(null, true)
+    if (!origin) return callback(null, true)
 
     return callback(new Error('Not allowed by cors'))
   }
