@@ -72,3 +72,6 @@ Content-Type: application/json
 
 ##Eliminar receta por id
 DELETE http://localhost:1234/recipes/1a2b3c4d-0002-0000-0000-000000000002
+
+###Verify deletion
+GET http://localhost:1234/recipes/1a2b3c4d-0002-0000-0000-000000000002
