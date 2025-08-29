@@ -1,8 +1,9 @@
-const express = require('express')
-const recipes = require('../mock/recipes.json')
-const { validateRecipe, validatePartialsRecipe } = require('../schemas/recipeSchema.js')
+import { Router } from 'express'
+import { validateRecipe, validatePartialsRecipe } from '../schemas/recipeSchema.js'
+import { readJSON } from '../utils/readJson.js'
 
-const router = express.Router()
+const recipes = readJSON('../mock/recipes.json')
+const router = Router()
 
 // -------------
 //   FILTROS
@@ -162,4 +163,4 @@ router.delete('/recipes/:id', (req, res) => {
 //   EXPORTACION
 // ----------------
 
-module.exports = router
+export default router

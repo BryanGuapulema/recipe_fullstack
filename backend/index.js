@@ -1,13 +1,13 @@
-const express = require('express')
-const cors = require('cors')
-const recipeRoutes = require('./routes/recipe.js')
+import express, { json } from 'express'
+import cors from 'cors'
+import recipeRoutes from './routes/recipe.js'
 
 const PORT = process.env.PORT ?? 1234
 
 const app = express()
 app.disable('x-powered-by')
 app.use(cors())
-app.use(express.json())
+app.use(json())
 
 // -----------------
 //   ROUTING

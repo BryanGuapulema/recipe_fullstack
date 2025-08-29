@@ -1,4 +1,4 @@
-const z = require('zod')
+import z from 'zod'
 
 const recipeSchema = z.object({
   title: z.string().min(1, 'Muy corto').max(100, 'Muy largo'),
@@ -8,15 +8,10 @@ const recipeSchema = z.object({
   difficulty: z.enum(['easy', 'medium', 'hard'], 'la dificultad solo puede ser del tipo: easy, medium,hard')
 })
 
-function validateRecipe (object) {
+export function validateRecipe (object) {
   return recipeSchema.safeParse(object)
 }
 
-function validatePartialsRecipe (object) {
+export function validatePartialsRecipe (object) {
   return recipeSchema.partial().safeParse(object)
-}
-
-module.exports = {
-  validateRecipe,
-  validatePartialsRecipe
 }
