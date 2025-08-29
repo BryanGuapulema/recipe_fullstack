@@ -1,18 +1,19 @@
 import express, { json } from 'express'
-import cors from 'cors'
-import recipeRoutes from './routes/recipe.js'
+import { recipesRouter } from './routes/recipes.js'
+import { corsMiddleware } from './middlewares/corsMiddleware.js'
 
 const PORT = process.env.PORT ?? 1234
 
 const app = express()
 app.disable('x-powered-by')
-app.use(cors())
+app.use(corsMiddleware({ acceptedOrigins: ['http://localhost:3000'] }))
+
 app.use(json())
 
 // -----------------
 //   ROUTING
 // -----------------
-app.use(recipeRoutes)
+app.use('/recipes', recipesRouter)
 
 // -----------------
 //   SERVER LISTENING

@@ -3,12 +3,12 @@ import { validateRecipe, validatePartialsRecipe } from '../schemas/recipeSchema.
 import { readJSON } from '../utils/readJson.js'
 
 const recipes = readJSON('../mock/recipes.json')
-const router = Router()
+export const recipesRouter = Router()
 
 // -------------
 //   FILTROS
 // -------------
-router.get('/recipes', (req, res) => {
+recipesRouter.get('/', (req, res) => {
   const { title, ingredient, difficulty, time_lte } = req.query
 
   // Filtro por titulo
@@ -54,7 +54,7 @@ router.get('/recipes', (req, res) => {
 // -------------
 
 // Obtener una receta por ID.
-router.get('/recipes/:id', (req, res) => {
+recipesRouter.get('/:id', (req, res) => {
   const { id } = req.params
 
   const recipe = recipes.find(recipe => recipe.id === id)
@@ -69,7 +69,7 @@ router.get('/recipes/:id', (req, res) => {
 // -------------
 //   CREACION
 // -------------
-router.post('/recipes', (req, res) => {
+recipesRouter.post('/', (req, res) => {
   const result = validateRecipe(req.body)
 
   if (!result.success) {
@@ -89,7 +89,7 @@ router.post('/recipes', (req, res) => {
 // ------------------------
 //   ACTUALIZACIÓN (PUT)
 // ------------------------
-router.put('/recipes/:id', (req, res) => {
+recipesRouter.put('/:id', (req, res) => {
   const { id } = req.params
   const recipeId = recipes.findIndex(recipe => recipe.id === id)
 
@@ -116,7 +116,7 @@ router.put('/recipes/:id', (req, res) => {
 // ------------------------
 //   ACTUALIZACIÓN (PATCH)
 // ------------------------
-router.patch('/recipes/:id', (req, res) => {
+recipesRouter.patch('/:id', (req, res) => {
   const { id } = req.params
   const recipeId = recipes.findIndex(recipe => recipe.id === id)
 
@@ -144,7 +144,7 @@ router.patch('/recipes/:id', (req, res) => {
 //   ELIMINACION
 // -------------
 
-router.delete('/recipes/:id', (req, res) => {
+recipesRouter.delete('/:id', (req, res) => {
   const { id } = req.params
 
   const recipeId = recipes.findIndex(recipe => recipe.id === id)
@@ -158,9 +158,3 @@ router.delete('/recipes/:id', (req, res) => {
   recipes.splice(recipeId, 1)
   return res.json(recipeDeleted)
 })
-
-// ----------------
-//   EXPORTACION
-// ----------------
-
-export default router
