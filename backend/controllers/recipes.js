@@ -1,4 +1,5 @@
-import { RecipeModel } from '../models/json/recipe.js'
+// import { RecipeModel } from '../models/json/recipe.js'
+import { RecipeModel } from '../models/mysql/recipe.js'
 import { validatePartialsRecipe, validateRecipe } from '../schemas/recipeSchema.js'
 
 export class RecipeController {
