@@ -31,21 +31,32 @@ export class RecipeModel {
     //   FILTRO: INGREDIENTE
     // ----------------
     if (ingredient) {
-      return
+      const ingredientsLower = ingredient.toLowerCase()
+      const [recipes] = await connection.query(
+        'SELECT * FROM recipe WHERE LOWER(ingredients) LIKE ?', [`%${ingredientsLower}%`]
+      )
+      return recipes
     }
 
     // ----------------
     //   FILTRO: DIFICULTAD
     // ----------------
     if (difficulty) {
-      return
+      const difficultyLower = difficulty.toLowerCase()
+      const [recipes] = await connection.query(
+        'SELECT * FROM recipe WHERE LOWER(difficulty) LIKE ?', [`%${difficultyLower}%`]
+      )
+      return recipes
     }
 
     // ----------------
     //   FILTRO: TIEMPO
     // ----------------
     if (time_lte) {
-      return ',fmsa'
+      const [recipes] = await connection.query(
+        'SELECT * FROM recipe WHERE time <= ?', [time_lte]
+      )
+      return recipes
     }
 
     // ----------------
