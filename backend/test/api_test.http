@@ -44,7 +44,7 @@ Content-Type: application/json
 ###  PUT
 ###-------------
 
-PUT http://localhost:1234/recipes/1a2b3c4d-0002-0000-0000-000000000002
+PUT http://localhost:1234/recipes/f0da7dfe-861b-11f0-8624-f430b99ac139
 Content-Type: application/json
 
 {
@@ -71,7 +71,7 @@ Content-Type: application/json
 ###------------------
 
 ##Eliminar receta por id
-DELETE http://localhost:1234/recipes/1a2b3c4d-0002-0000-0000-000000000002
+DELETE http://localhost:1234/recipes/7960f5d3-861c-11f0-8624-f430b99ac139
 
 ###Verify deletion
-GET http://localhost:1234/recipes/1a2b3c4d-0002-0000-0000-000000000002
+GET http://localhost:1234/recipes/7bfbcd5d-8619-11f0-8624-f430b99ac139

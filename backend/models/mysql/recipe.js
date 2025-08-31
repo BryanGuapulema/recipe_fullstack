@@ -101,8 +101,8 @@ export class RecipeModel {
       await connection.query(
         'INSERT INTO recipe(id, title, ingredients, instructions, time ,difficulty) VALUES (?,?,?,?,?,?)', [uuid, title, ingredients.join(), instructions, time, difficulty]
       )
-    } catch (error) {
-      throw new Error('Error reating movie')
+    } catch (e) {
+      throw new Error('Error creating recipe')
     }
 
     const [recipe] = await connection.query(
@@ -115,20 +115,54 @@ export class RecipeModel {
   //   ACTUALIZACIÓN (PUT)
   // ------------------------
   static async update ({ id, input }) {
+    const {
+      title,
+      ingredients,
+      instructions,
+      time,
+      difficulty
+    } = input
 
+    try {
+      await connection.query(
+        'UPDATE recipe SET title = ?, ingredients = ?, instructions = ?, time = ?,difficulty = ? WHERE id = ?', [title, ingredients.join(), instructions, time, difficulty, id]
+      )
+    } catch (e) {
+      throw new Error('Error updating recipe')
+    }
+
+    const [recipe] = await connection.query(
+      'SELECT * FROM recipe WHERE id = ?;', [id]
+    )
+
+    if (recipe.length > 0) return recipe
   }
 
   // ------------------------
   //   ACTUALIZACIÓN (PATCH)
   // ------------------------
   static async partialUpdate ({ id, input }) {
-
+    return { message: 'Not implemented yet on MYSQL DB' }
   }
 
   // -------------
   //   ELIMINACION
   // -------------
   static async delete ({ id }) {
+    const [recipe] = await connection.query(
+      'SELECT * FROM recipe WHERE id = ?', [id]
+    )
 
+    if (recipe.length > 0) {
+      try {
+        await connection.query(
+          'DELETE FROM recipe WHERE id = ?', [id]
+        )
+
+        return recipe
+      } catch (error) {
+        throw new Error('Error deleting recipe')
+      }
+    }
   }
 }

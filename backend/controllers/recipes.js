@@ -70,7 +70,7 @@ export class RecipeController {
     const recipeDeleted = await RecipeModel.delete({ id })
 
     if (!recipeDeleted) {
-      return res.status(404).json('Recipe not found')
+      return res.status(404).json({ error: 'Recipe not found' })
     }
 
     return res.json(recipeDeleted)
