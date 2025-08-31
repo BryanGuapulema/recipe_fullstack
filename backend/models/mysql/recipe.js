@@ -20,7 +20,11 @@ export class RecipeModel {
     //   FILTRO: TITULO
     // ----------------
     if (title) {
-      return
+      const titleLower = title.toLowerCase()
+      const [recipes] = await connection.query(
+        'SELECT * FROM recipe WHERE LOWER(title) LIKE ?', [`%${titleLower}%`]
+      )
+      return recipes
     }
 
     // ----------------
