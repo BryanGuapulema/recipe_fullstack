@@ -75,7 +75,11 @@ export class RecipeModel {
   // -------------
   static async getById ({ id }) {
     // Obtener una receta por ID.
+    const [recipe] = await connection.query(
+      'SELECT * FROM recipe WHERE id = ?;', id
+    )
 
+    if (recipe.length > 0) return recipe
   }
 
   // -------------
