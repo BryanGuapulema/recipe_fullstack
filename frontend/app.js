@@ -64,7 +64,7 @@ function renderRecipes(recipes) {
       <h3>${recipe.title}</h3>
       <p><strong>Dificultad:</strong> ${recipe.difficulty}</p>
       <p><strong>Tiempo:</strong> ${recipe.time} min</p>
-      <p><strong>Ingredientes:</strong> ${recipe.ingredients.join(", ")}</p>
+      <p><strong>Ingredientes:</strong> ${recipe.ingredients}</p>
       <div class="actions">
         <button onclick='editRecipe(${JSON.stringify(recipe)})'>Editar</button>
         <button onclick='deleteRecipe("${recipe.id}")'>Eliminar</button>
