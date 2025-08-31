@@ -76,7 +76,7 @@ export class RecipeModel {
   static async getById ({ id }) {
     // Obtener una receta por ID.
     const [recipe] = await connection.query(
-      'SELECT * FROM recipe WHERE id = ?;', id
+      'SELECT * FROM recipe WHERE id = ?;', [id]
     )
 
     if (recipe.length > 0) return recipe
@@ -86,7 +86,29 @@ export class RecipeModel {
   //   CREACION
   // -------------
   static async create ({ input }) {
+    // INSERT INTO recipe(title, ingredients, instructions, time ,difficulty) VALUES ("title", "Ingrediente 1, Ingrediente 2, Ingrediente3","A lot of isntrucctions step by step",30,"easy")
+    const [uuidResult] = await connection.query('SELECT UUID() uuid')
+    const [{ uuid }] = uuidResult
+    const {
+      title,
+      ingredients,
+      instructions,
+      time,
+      difficulty
+    } = input
 
+    try {
+      await connection.query(
+        'INSERT INTO recipe(id, title, ingredients, instructions, time ,difficulty) VALUES (?,?,?,?,?,?)', [uuid, title, ingredients.join(), instructions, time, difficulty]
+      )
+    } catch (error) {
+      throw new Error('Error reating movie')
+    }
+
+    const [recipe] = await connection.query(
+      'SELECT * FROM recipe WHERE id = ?;', [uuid]
+    )
+    return recipe
   }
 
   // ------------------------
